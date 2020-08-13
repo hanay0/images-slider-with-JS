@@ -42,7 +42,7 @@ body{
 }
 
 /*slider controls*/
-.slider-container .slider-controls{
+.slider-controls{
     width: 640px;
     margin: auto;
     overflow: hidden;
