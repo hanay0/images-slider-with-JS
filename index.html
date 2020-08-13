@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>JS Slider</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <!-- slider container -->
+        <div class="slider-container">
+            <div class="slide-number" id="slide-number"></div>
+            <img class="active" src="images/pic-1.jpg" alt="No1">
+            <img src="images/pic-2.jpg" alt="No2">
+            <img src="images/pic-3.jpg" alt="No3">
+            <img src="images/pic-4.jpg" alt="No4">
+            <img src="images/pic-5.jpg" alt="No5">
+        </div>
+
+        <!-- slider controls -->
+        <div class="slider-controls">
+            <span class="prev" id="prev">Previous</span>
+            <span id="indicators" class="indicators"></span>
+            <span class="next" id="next">Next</span>
+        </div>
+        
+        <script src="plugin.js" async defer></script>
+    </body>
+</html>
