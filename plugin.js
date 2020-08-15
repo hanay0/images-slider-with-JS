@@ -5,7 +5,7 @@ const sliderImages = Array.from(document.querySelectorAll('.slider-container img
 const sliderImagesCount = sliderImages.length;
 
 // setting current slide to start form it
-const currentSlide = 2;
+const currentSlide = 5;
 
 // number of the current slide element 
 const slideNumber = document.getElementById('slide-number');
@@ -49,6 +49,9 @@ next.addEventListener('click', nextSlide);
 // get the new created ul
 let paginationCreatedUl = document.getElementById('pagination-ul');
 
+// get pagination items 
+var paginationsBullets = Array.from(document.querySelectorAll('#pagination-ul li'));
+
 // trigger the checker function
 theChecker();
 // previous function
@@ -68,10 +71,52 @@ function theChecker(){
     // set the slide number
     slideNumber.textContent = `slide # ${currentSlide} of ${sliderImagesCount}`;
 
+    // remove all active classes form images instead of current image or slide
+    removeAllActives();
     // set active class on the current element
     sliderImages[currentSlide - 1].classList.add('active');
 
     // set active pagination
     paginationCreatedUl.children[currentSlide - 1].classList.add('active');
 
+    // checking if current slide is the first one
+    if(currentSlide == 1){
+
+        // add disabled class on previous button
+        prev.classList.add('disabled');
+    } else {
+
+        // remove disabled class from previous button
+        prev.classList.remove('disabled');
+    }
+
+    // checking if current slide is the last one
+    if(currentSlide == sliderImagesCount){
+
+        // add disabled class on next button
+        next.classList.add('disabled');
+    } else {
+
+        // remove disabled class from next button
+        next.classList.remove('disabled');
+    }
+
+
 }
+
+// removing all active classes from images and paginations bullets
+function removeAllActives(){
+
+    // loop through images
+    sliderImages.forEach(function (img){
+        img.classList.remove('active');
+    });
+
+    // loop through pagination bullets
+paginationsBullets.forEach(function(bullet){
+
+    bullet.classList.remove('active');
+
+    });
+}
+
