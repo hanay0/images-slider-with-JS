@@ -5,7 +5,7 @@ const sliderImages = Array.from(document.querySelectorAll('.slider-container img
 const sliderImagesCount = sliderImages.length;
 
 // setting current slide to start form it
-const currentSlide = 5;
+var currentSlide = 2;
 
 // number of the current slide element 
 const slideNumber = document.getElementById('slide-number');
@@ -52,16 +52,39 @@ let paginationCreatedUl = document.getElementById('pagination-ul');
 // get pagination items 
 var paginationsBullets = Array.from(document.querySelectorAll('#pagination-ul li'));
 
+// loop through all bullets items
+for(var i = 0; i < paginationsBullets.length; i++){
+    paginationsBullets[i].addEventListener('click',function(){
+        currentSlide = parseInt(this.getAttribute('data-index'));
+
+        theChecker();
+    })
+}
+
+
 // trigger the checker function
 theChecker();
+
 // previous function
 function previousSlide() {
-    console.log('Previous');
+    if(prev.classList.contains('disabled')){
+        return false;
+    } else {
+        currentSlide--;
+        theChecker();
+    }
 }
 
 // next function
 function nextSlide() {
-    console.log('Next');
+    if(next.classList.contains('disabled')){
+        // do nothing if this condition applies
+        return false;
+    } else {
+
+        currentSlide++;
+        theChecker();
+    }   
 }
 
 
